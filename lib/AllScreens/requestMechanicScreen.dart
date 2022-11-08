@@ -157,11 +157,13 @@ class _RequestMechanicScreenState extends State<RequestMechanicScreen> with Tick
                 ],
               ),
               SizedBox(height: 8),
-              RaisedButton(
+              OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.greenAccent,
+                ),
                 onPressed: (){
                   callMechanic(mechanic_phoneno!);
                 },
-                color: Colors.greenAccent,
                 child: Padding(
                   padding: EdgeInsets.all(7.0),
                   child: Row(

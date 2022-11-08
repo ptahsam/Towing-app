@@ -168,9 +168,16 @@ class _ServiceScreenState extends State<ServiceScreen> {
 
 
                   SizedBox(height: 10.0,),
-                  RaisedButton(
-                    color: Colors.blueAccent,
-                    textColor: Colors.white,
+                  OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(15.0),
+                      ),
+                      backgroundColor: Colors.blueAccent,
+                      textStyle: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                     child: Container(
                       height: 50.0,
                       child: Center(
@@ -179,9 +186,6 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           style: TextStyle(fontSize: 18.0, fontFamily: "San Fransisco"),
                         ),
                       ),
-                    ),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(15.0),
                     ),
                     onPressed: ()
                     {

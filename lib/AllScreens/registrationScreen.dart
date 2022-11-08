@@ -176,20 +176,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     ),
 
                     SizedBox(height: 10.0,),
-                    RaisedButton(
-                      color: Colors.blueAccent,
-                      textColor: Colors.white,
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(15.0),
+                        ),
+                        backgroundColor: Colors.blueAccent,
+                        textStyle: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                       child: Container(
                         height: 50.0,
                         child: Center(
                           child: Text(
                             "Create Account",
-                            style: TextStyle(fontSize: 18.0, fontFamily: "San Fransisco"),
+                            style: TextStyle(fontSize: 18.0, fontFamily: "San Fransisco", color: Colors.white),
                           ),
                         ),
-                      ),
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(15.0),
                       ),
                       onPressed: ()
                       {
@@ -218,7 +222,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ],
                 ),
               ),
-              FlatButton(
+              TextButton(
                 onPressed: ()
                 {
                   Navigator.pushNamedAndRemoveUntil(context, LoginScreen.idScreen, (route) => false);

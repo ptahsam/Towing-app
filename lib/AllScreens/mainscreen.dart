@@ -211,7 +211,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     }).then((_) {
 
     }).catchError((onError) {
-      Scaffold.of(context).showSnackBar(SnackBar(content: Text(onError)));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(onError)));
     });
 
     //tollServiceRef = FirebaseDatabase.instance.reference().child("Towing Services").child(selectedDriverid);
@@ -234,7 +234,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     }).then((_) {
 
     }).catchError((onError) {
-      Scaffold.of(context).showSnackBar(SnackBar(content: Text(onError)));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(onError)));
     });
 
     tollServiceRef = FirebaseDatabase.instance.reference().child("Towing Services").child(selectedDriverid);
@@ -244,7 +244,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     }).then((_) {
 
     }).catchError((onError) {
-      Scaffold.of(context).showSnackBar(SnackBar(content: Text(onError)));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(onError)));
     });
 
   }
@@ -993,11 +993,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: RaisedButton(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Theme.of(context).accentColor,
+                          ),
                           onPressed: (){
                             displayRequestTollContainer();
                           },
-                          color: Theme.of(context).accentColor,
                           child: Padding(
                             padding: EdgeInsets.all(17.0),
                             child: Row(
@@ -1255,11 +1257,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: RaisedButton(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Colors.redAccent,
+                          ),
                           onPressed: (){
                             resetTruckDriverContainer();
                           },
-                          color: Colors.redAccent,
                           child: Padding(
                             padding: EdgeInsets.all(14.0),
                             child: Row(
@@ -1278,11 +1282,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: RaisedButton(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Colors.greenAccent,
+                          ),
                           onPressed: (){
                             _launchPhoneURL();
                           },
-                          color: Colors.greenAccent,
                           child: Padding(
                             padding: EdgeInsets.all(14.0),
                             child: Row(
@@ -1301,11 +1307,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: RaisedButton(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                          ),
                           onPressed: (){
                             lipaNaMpesa();
                           },
-                          color: Colors.white,
                           child: Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Row(
@@ -1425,12 +1433,14 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: RaisedButton(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Colors.blueAccent,
+                          ),
                           onPressed: (){
                             saveDriverId();
                             setTruckDriverContainer();
                           },
-                          color: Colors.blueAccent,
                           child: Padding(
                             padding: EdgeInsets.all(17.0),
                             child: Row(
@@ -1449,11 +1459,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: RaisedButton(
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Colors.greenAccent,
+                          ),
                           onPressed: (){
                             resetTollTruckContainer();
                           },
-                          color: Colors.greenAccent,
                           child: Padding(
                             padding: EdgeInsets.all(17.0),
                             child: Row(
@@ -2090,9 +2102,16 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
             ),
             SizedBox(height: 3.0,),
             status != ""?
-            RaisedButton(
-              color: Colors.blueAccent,
-              textColor: Colors.white,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(5.0),
+                ),
+                backgroundColor: Colors.blueAccent,
+                textStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               child: Container(
                 height: 20.0,
                 child: Center(
@@ -2101,9 +2120,6 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                     style: TextStyle(fontFamily: "San Fransisco"),
                   ),
                 ),
-              ),
-              shape: new RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(5.0),
               ),
               onPressed: ()
               {
